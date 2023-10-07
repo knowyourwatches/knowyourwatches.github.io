@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Know Your Watches - Minimalistic Watch Game</title>
+</head>
+<body onload="updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);">
+        <div class="container">
+            <div class="grid-item-1"></div>
+            <div class="grid-item-2">
+                <div class="grid-item-2-container">
+                knowyourwatches.com
+                <div class="sub-head">Disclaimer: I do not own any of the images shown on this site. Contact:fluff-toe0@icloud.com</div>
+                </div>
+            </div>
+            <div class="grid-item-3"></div>
+            <div class="grid-item-4"></div>
+            <div class="grid-item-5">
+                    <div class="inner-container">
+                        <div class="inner-grid-item-1">
+                            <div class="inner-grid-item-1-frame">
+                                <div class="inner-grid-item-1-image">
+                                    <img id="watch-img" class="inner-grid-item-1-image-image" src="https://tse1.mm.bing.net/th?id=OIP.0QBDQdRV1_rkJalgrZ59GgHaNb&pid=Api" width="2rem" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner-grid-item-2">
+                            <div class="inner-grid-item-2-buttoncontainer">
+                                <div id="watch-button-1" class="inner-grid-item-2-button-1" onclick="bt1pressed()">
+                                </div>
+                                <div id="watch-button-2" class="inner-grid-item-2-button-2" onclick="bt2pressed()">
+                                </div>
+                                <div id="watch-button-3" class="inner-grid-item-2-button-3" onclick="bt3pressed()">
+                                </div>
+                                <div id="watch-button-4" class="inner-grid-item-2-button-4" onclick="bt4pressed()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-subcontent">
+                    <div class="inner-subcontainer">
+                        <div  id="stats"  class="stats">
+                        </div>
+                        <div id="game-advance" class="game-advance">
+                        </div>
+                        <div id="restart" class="restart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item-6"></div><!--Grid item margin-->
+            <div class="grid-item-7"></div><!--Grid item margin-->
+            <div class="grid-item-8"><!--Grid item footer bar-->
+                <div class="mwlt">
+                    Made with ❤️ in Göteborg.
+                </div>
+            </div>
+            <div class="grid-item-9"></div><!--Grid item margin-->
+        </div>
+        <script src="script.js"></script>
+</body>
+</html>
