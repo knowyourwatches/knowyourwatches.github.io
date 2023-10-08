@@ -1,3 +1,4 @@
+
 let bt1 = 'watch-button-1';
 let bt2 = 'watch-button-2';
 let bt3 = 'watch-button-3';
@@ -7,6 +8,14 @@ let restart = 'restart';
 let stats = 'stats';
 let watchImage = 'watch-img';
 
+let modal = "modal"
+let star1 = "star1"
+let star2 = "star2"
+let star3 = "star3"
+let closeModal = "modal-button"
+
+let tempScoreHolder = [];
+tempScoreHolder[0] = 0;
 let correctAnswer = [];
 correctAnswer[0] = "";
 let indexOfcorrectAnswer;
@@ -34,7 +43,7 @@ let watches = [
     ["Timex Easy Reader", "https://tse1.explicit.bing.net/th?id=OIP.WAUW9O8YA2MKUimctaGIgAHaNE&pid=Api"]
 ]
 
-    let stefan = [-1];
+    let round = [-1];
     let score = [];
     let quadlets = [];
     for (let i = watches.length - 1; i >= 0; i--) {
@@ -60,6 +69,7 @@ let watches = [
         score.push(scoreSet)
       quadlets.push(set);
     }
+
 let updateGame = () => {
     document.getElementById(bt1).style.backgroundColor = "#4361ee"
     document.getElementById(bt2).style.backgroundColor = "#4361ee"
@@ -67,32 +77,56 @@ let updateGame = () => {
     document.getElementById(bt4).style.backgroundColor = "#4361ee"
     let indexOfcorrectAnswer = 0;
     let Ttemparray = [];
-    stefan[0] += 1;
-    if (stefan[0] >= quadlets.length) {stefan[0] = 0}
-    console.log("stefan:", stefan)
-    console.log("score:", score)
-    console.log("quadlets:", quadlets)
-    for (johan = 2; johan > -1; johan--) {
-        Ttemparray.push(quadlets[stefan[0]][johan][0])
+    round[0] += 1;
+    if (round[0] >= quadlets.length) {round[0] = 0}
+    for (q = 2; q > -1; q--) {
+        Ttemparray.push(quadlets[round[0]][q][0])
     }
-    Ttemparray.push(score[stefan[0]][0])
+    Ttemparray.push(score[round[0]][0])
     for (Ti = 3; Ti > -1; Ti--) {
         let randomT = Math.floor(Math.random() * (4))
-        console.log(randomT)
         let tempT = Ttemparray[randomT];
         Ttemparray[randomT] = Ttemparray[Ti];
         Ttemparray[Ti] = tempT;
     }    
-    console.log(score[stefan[0]][1])
-    document.getElementById(gameAdvance).innerHTML = (stefan[0] + "/" + (quadlets.length + 1))
-    document.getElementById(watchImage).src = score[stefan[0]][1]
+    document.getElementById(gameAdvance).innerHTML = ((round[0]+1) + "/" + (quadlets.length))
+    document.getElementById(watchImage).src = score[round[0]][1]
     document.getElementById(bt1).innerHTML = Ttemparray[0]
     document.getElementById(bt2).innerHTML = Ttemparray[1]
     document.getElementById(bt3).innerHTML = Ttemparray[2]
     document.getElementById(bt4).innerHTML = Ttemparray[3]
-    correctAnswer[0] = score[stefan[0]][0]
+    correctAnswer[0] = score[round[0]][0]
     indexOfcorrectAnswer = Ttemparray.indexOf(correctAnswer[0]);
-    console.log(correctAnswer[0])
+    if ((round[0]+1) === (quadlets.length)) {
+        for (iii = 0; iii < score.length; iii++) {
+            if (score[iii][2] == 1) {
+                tempScoreHolder[0]++;
+            }
+        }
+        let scoreLength = score.length;
+        let RoundScore = tempScoreHolder[0]/scoreLength;
+        if (RoundScore < 0.33) {
+            document.getElementById(star1).querySelector('path').setAttribute('fill', '#ffffff');
+            document.getElementById(star2).querySelector('path').setAttribute('fill', '#ffffff');
+            document.getElementById(star3).querySelector('path').setAttribute('fill', '#ffffff');
+        }
+        else if (RoundScore > 0.33 && RoundScore < 0.66) {
+            document.getElementById(star1).querySelector('path').setAttribute('fill', '#000000');
+            document.getElementById(star2).querySelector('path').setAttribute('fill', '#ffffff');
+            document.getElementById(star3).querySelector('path').setAttribute('fill', '#ffffff');
+        }
+        else if (RoundScore > 0.66 && RoundScore < 0.99) {
+            document.getElementById(star1).querySelector('path').setAttribute('fill', '#000000');
+            document.getElementById(star2).querySelector('path').setAttribute('fill', '#000000');
+            document.getElementById(star3).querySelector('path').setAttribute('fill', '#ffffff');
+        }
+        else if (RoundScore >= 0.99) {
+            document.getElementById(star1).querySelector('path').setAttribute('fill', '#000000');
+            document.getElementById(star2).querySelector('path').setAttribute('fill', '#000000');
+            document.getElementById(star3).querySelector('path').setAttribute('fill', '#000000');
+        }
+        document.getElementById(modal).style.display = "block";
+    }
 }
 function handleButtonClick(buttonId) {
   const button = document.getElementById(buttonId);
@@ -100,14 +134,21 @@ function handleButtonClick(buttonId) {
 
   if (buttonContent === correctAnswer[0]) {
     button.style.backgroundColor = "#31D843";
+
+    score[round][2] += 1;
     setTimeout(() => {
-      updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);
+      updateGame();
     }, 500);
   } else {
     button.style.backgroundColor = "#FF5E5B";
+    score[round][2] += -1;
   }
 }
 document.getElementById(bt1).addEventListener("click", () => handleButtonClick(bt1));
 document.getElementById(bt2).addEventListener("click", () => handleButtonClick(bt2));
 document.getElementById(bt3).addEventListener("click", () => handleButtonClick(bt3));
 document.getElementById(bt4).addEventListener("click", () => handleButtonClick(bt4));
+
+document.getElementById(closeModal).addEventListener("click", () => {
+    document.getElementById(modal).style.display = "none";
+})
