@@ -14,7 +14,6 @@ let star3 = "star3"
 let closeModal = "modal-button"
 
 let tempScoreHolder = [];
-tempScoreHolder[0] = 0;
 let correctAnswer = [];
 correctAnswer[0] = "";
 let indexOfcorrectAnswer;
@@ -70,6 +69,7 @@ let watches = [
     }
 
 let updateGame = () => {
+    tempScoreHolder[0] = 0;
     document.getElementById(bt1).style.backgroundColor = "#4361ee"
     document.getElementById(bt2).style.backgroundColor = "#4361ee"
     document.getElementById(bt3).style.backgroundColor = "#4361ee"
