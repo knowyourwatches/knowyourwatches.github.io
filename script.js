@@ -107,8 +107,6 @@ function handleButtonClick(buttonId) {
     button.style.backgroundColor = "#FF5E5B";
   }
 }
-
-// Attach the click event handlers to the buttons
 document.getElementById(bt1).addEventListener("click", () => handleButtonClick(bt1));
 document.getElementById(bt2).addEventListener("click", () => handleButtonClick(bt2));
 document.getElementById(bt3).addEventListener("click", () => handleButtonClick(bt3));
