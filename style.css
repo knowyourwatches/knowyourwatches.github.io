@@ -69,9 +69,6 @@ html, body {
     border-radius: 0.75rem;
 }
 
-.inner-grid-item-2-buttoncontent {
-
-}
 
 .inner-grid-item-2-buttoncontainer {
     display: grid;
@@ -199,4 +196,76 @@ html, body {
     font-weight: 700;
     font-size: 0.8em;
     color: var(--secondary-color);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 0.3rem #323031;
+    background-color: #ffffff;
+    z-index: 1;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    width: 40%;
+    height: 15%;
+}
+
+.modal-outer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    
+}
+
+.modal-outer-grid-item-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-outer-grid-item-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.modal-inner-grid-item-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-inner-grid-item-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-inner-grid-item-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-outer-grid-item-3 {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-button {
+    background-color: var(--accent-color-1);
+    color: var(--primary-color);
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    border-radius: 0.5rem;
 }
