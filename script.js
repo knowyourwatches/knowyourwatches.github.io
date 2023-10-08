@@ -77,33 +77,21 @@ let updateGame = () => {
     let indexOfcorrectAnswer = 0;
     let Ttemparray = [];
     round[0] += 1;
-    if (round[0] >= quadlets.length) {round[0] = 0}
-    for (q = 2; q > -1; q--) {
-        Ttemparray.push(quadlets[round[0]][q][0])
-    }
-    Ttemparray.push(score[round[0]][0])
-    for (Ti = 3; Ti > -1; Ti--) {
-        let randomT = Math.floor(Math.random() * (4))
-        let tempT = Ttemparray[randomT];
-        Ttemparray[randomT] = Ttemparray[Ti];
-        Ttemparray[Ti] = tempT;
-    }    
-    document.getElementById(gameAdvance).innerHTML = ((round[0]+1) + "/" + (quadlets.length))
-    document.getElementById(watchImage).src = score[round[0]][1]
-    document.getElementById(bt1).innerHTML = Ttemparray[0]
-    document.getElementById(bt2).innerHTML = Ttemparray[1]
-    document.getElementById(bt3).innerHTML = Ttemparray[2]
-    document.getElementById(bt4).innerHTML = Ttemparray[3]
-    correctAnswer[0] = score[round[0]][0]
-    indexOfcorrectAnswer = Ttemparray.indexOf(correctAnswer[0]);
-    if ((round[0]+1) === (quadlets.length)) {
+
+    if ((round[0]) === (quadlets.length)) {
+        
+
         for (iii = 0; iii < score.length; iii++) {
             if (score[iii][2] == 1) {
                 tempScoreHolder[0]++;
+                console.log(tempScoreHolder[0] + "tempscoreholder")
             }
         }
+
         let scoreLength = score.length;
         let RoundScore = tempScoreHolder[0]/scoreLength;
+        console.log(scoreLength, tempScoreHolder[0], RoundScore)
+
         if (RoundScore < 0.33) {
             document.getElementById(star1).querySelector('path').setAttribute('fill', '#ffffff');
             document.getElementById(star2).querySelector('path').setAttribute('fill', '#ffffff');
@@ -124,8 +112,37 @@ let updateGame = () => {
             document.getElementById(star2).querySelector('path').setAttribute('fill', '#000000');
             document.getElementById(star3).querySelector('path').setAttribute('fill', '#000000');
         }
+
+        console.log("completed round, roundscore: " + RoundScore)
         document.getElementById(modal).style.display = "block";
+
     }
+
+    if (round[0] >= quadlets.length) {round[0] = 0}
+    console.log("round:", round)
+    console.log("score:", score)
+    console.log("quadlets:", quadlets)
+    for (q = 2; q > -1; q--) {
+        Ttemparray.push(quadlets[round[0]][q][0])
+    }
+    Ttemparray.push(score[round[0]][0])
+    for (Ti = 3; Ti > -1; Ti--) {
+        let randomT = Math.floor(Math.random() * (4))
+        console.log(randomT)
+        let tempT = Ttemparray[randomT];
+        Ttemparray[randomT] = Ttemparray[Ti];
+        Ttemparray[Ti] = tempT;
+    }    
+    console.log(score[round[0]][1])
+    document.getElementById(gameAdvance).innerHTML = ((round[0]+1) + "/" + (quadlets.length))
+    document.getElementById(watchImage).src = score[round[0]][1]
+    document.getElementById(bt1).innerHTML = Ttemparray[0]
+    document.getElementById(bt2).innerHTML = Ttemparray[1]
+    document.getElementById(bt3).innerHTML = Ttemparray[2]
+    document.getElementById(bt4).innerHTML = Ttemparray[3]
+    correctAnswer[0] = score[round[0]][0]
+    indexOfcorrectAnswer = Ttemparray.indexOf(correctAnswer[0]);
+    console.log(correctAnswer[0])
 }
 function handleButtonClick(buttonId) {
   const button = document.getElementById(buttonId);
