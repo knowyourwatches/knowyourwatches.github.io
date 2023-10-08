@@ -1,4 +1,3 @@
-
 let bt1 = 'watch-button-1';
 let bt2 = 'watch-button-2';
 let bt3 = 'watch-button-3';
