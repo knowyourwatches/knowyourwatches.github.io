@@ -94,47 +94,22 @@ let updateGame = () => {
     indexOfcorrectAnswer = Ttemparray.indexOf(correctAnswer[0]);
     console.log(correctAnswer[0])
 }
-let bt1pressed = () => {
-    if (document.getElementById(bt1).innerHTML == correctAnswer[0]) {
-        document.getElementById(bt1).style.backgroundColor = "#31D843"
-        setTimeout(() => {
-            updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);
-        }, 500);
-    }
-    else {
-        document.getElementById(bt1).style.backgroundColor = "#FF5E5B"
-    }
+function handleButtonClick(buttonId) {
+  const button = document.getElementById(buttonId);
+  const buttonContent = button.innerHTML;
+
+  if (buttonContent === correctAnswer[0]) {
+    button.style.backgroundColor = "#31D843";
+    setTimeout(() => {
+      updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);
+    }, 500);
+  } else {
+    button.style.backgroundColor = "#FF5E5B";
+  }
 }
-let bt2pressed = () => {
-    if (document.getElementById(bt2).innerHTML == correctAnswer[0]) {
-        document.getElementById(bt2).style.backgroundColor = "#31D843"
-        setTimeout(() => {
-            updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);
-        }, 500);
-    }
-    else {
-        document.getElementById(bt2).style.backgroundColor = "#FF5E5B"
-    }
-}
-let bt3pressed = () => {
-    if (document.getElementById(bt3).innerHTML == correctAnswer[0]) {
-        document.getElementById(bt3).style.backgroundColor = "#31D843"
-        setTimeout(() => {
-            updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);
-        }, 500);
-    }
-    else {
-        document.getElementById(bt3).style.backgroundColor = "#FF5E5B"
-    }
-}
-let bt4pressed = () => {
-    if (document.getElementById(bt4).innerHTML == correctAnswer[0]) {
-        document.getElementById(bt4).style.backgroundColor = "#31D843"
-        setTimeout(() => {
-            updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);
-        }, 500);
-    }
-    else {
-        document.getElementById(bt4).style.backgroundColor = "#FF5E5B"
-    }
-}
+
+// Attach the click event handlers to the buttons
+document.getElementById(bt1).addEventListener("click", () => handleButtonClick(bt1));
+document.getElementById(bt2).addEventListener("click", () => handleButtonClick(bt2));
+document.getElementById(bt3).addEventListener("click", () => handleButtonClick(bt3));
+document.getElementById(bt4).addEventListener("click", () => handleButtonClick(bt4));
