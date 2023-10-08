@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Know Your Watches - Minimalistic Watch Game</title>
 </head>
-<body onload="updateGame(score, quadlets, bt1, bt2, bt3, bt4, gameAdvance, watchImage, stefan);">
+<body onload="updateGame();">
         <div class="container">
             <div class="grid-item-1"></div>
             <div class="grid-item-2">
@@ -22,6 +22,43 @@
             <div class="grid-item-3"></div>
             <div class="grid-item-4"></div>
             <div class="grid-item-5">
+
+                <div class="modal" id="modal">
+                    
+                    <div class="modal-outer-grid">
+                        <div class="modal-outer-grid-item-1">Score:</div>
+                        <div class="modal-outer-grid-item-2">
+                            <div class="modal-outer-grid-filler"></div>
+                            <div class="modal-inner-grid-item-1" id="modal-inner-grid-item-1">
+                                <svg id="star1" width="50" height="50" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M152.559 419.723C145.891 424.241 139.529 428.557 133.685 432.525L168.303 310.031L171.659 298.154L161.982 290.494C140.394 273.407 108.01 247.8 81.0192 226.512C74.37 221.268 68.0451 216.283 62.2876 211.751L190.116 207.49L202.669 207.071L206.912 195.251C216.243 169.257 230.264 130.27 241.999 97.7861C244.836 89.9344 247.538 82.4669 250.006 75.6573L294.142 195.398L298.44 207.061L310.862 207.489L439.132 211.912L337.218 290.339L327.26 298.001L330.712 310.082L365.865 433.118L259.889 361.193L249.528 354.16L239.149 361.167C216.061 376.754 181.426 400.16 152.559 419.723Z" fill="#FFFFFF" stroke="black" stroke-width="37"/>
+                                    </svg>
+                            </div>
+
+                            <div class="modal-inner-grid-item-2" id="modal-inner-grid-item-2">
+                                <svg id="star2" width="50" height="50" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M152.559 419.723C145.891 424.241 139.529 428.557 133.685 432.525L168.303 310.031L171.659 298.154L161.982 290.494C140.394 273.407 108.01 247.8 81.0192 226.512C74.37 221.268 68.0451 216.283 62.2876 211.751L190.116 207.49L202.669 207.071L206.912 195.251C216.243 169.257 230.264 130.27 241.999 97.7861C244.836 89.9344 247.538 82.4669 250.006 75.6573L294.142 195.398L298.44 207.061L310.862 207.489L439.132 211.912L337.218 290.339L327.26 298.001L330.712 310.082L365.865 433.118L259.889 361.193L249.528 354.16L239.149 361.167C216.061 376.754 181.426 400.16 152.559 419.723Z" fill="#FFFFFF" stroke="black" stroke-width="37"/>
+                                    </svg>
+                            </div>
+
+                            <div class="modal-inner-grid-item-3" id="modal-inner-grid-item-3">
+                                <svg id="star3" width="50" height="50" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M152.559 419.723C145.891 424.241 139.529 428.557 133.685 432.525L168.303 310.031L171.659 298.154L161.982 290.494C140.394 273.407 108.01 247.8 81.0192 226.512C74.37 221.268 68.0451 216.283 62.2876 211.751L190.116 207.49L202.669 207.071L206.912 195.251C216.243 169.257 230.264 130.27 241.999 97.7861C244.836 89.9344 247.538 82.4669 250.006 75.6573L294.142 195.398L298.44 207.061L310.862 207.489L439.132 211.912L337.218 290.339L327.26 298.001L330.712 310.082L365.865 433.118L259.889 361.193L249.528 354.16L239.149 361.167C216.061 376.754 181.426 400.16 152.559 419.723Z" fill="#FFFFFF" stroke="black" stroke-width="37"/>
+                                    </svg>
+                            </div>
+
+                            <div class="modal-outer-grid-filler"></div>
+
+                        </div>
+
+                        <div class="modal-outer-grid-item-3">
+                            <div class="modal-button" id="modal-button">Close</div>
+                        </div>
+
+                    </div>
+                
+                </div>
+
                     <div class="inner-container">
                         <div class="inner-grid-item-1">
                             <div class="inner-grid-item-1-frame">
@@ -58,7 +95,7 @@
             <div class="grid-item-7"></div><!--Grid item margin-->
             <div class="grid-item-8"><!--Grid item footer bar-->
                 <div class="mwlt">
-                    Made with ❤️ in Göteborg.
+                    Made with ❤️ in Göteborg, Sweden.
                 </div>
             </div>
             <div class="grid-item-9"></div><!--Grid item margin-->
