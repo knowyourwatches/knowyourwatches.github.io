@@ -82,10 +82,13 @@ let updateGame = () => {
         
 
         for (iii = 0; iii < score.length; iii++) {
+            
             if (score[iii][2] == 1) {
                 tempScoreHolder[0]++;
                 console.log(tempScoreHolder[0] + "tempscoreholder")
             }
+            score[iii][2] = 0;
+            
         }
 
         let scoreLength = score.length;
